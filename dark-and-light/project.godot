@@ -1,0 +1,25 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[Fmod]
+
+General/banks_path="res://fmod/DarkAndLight/Build/Desktop"
+
+[application]
+
+config/name="Dark And Light"
+run/main_scene="uid://bbdfrjjw5mysx"
+config/features=PackedStringArray("4.5", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+AudioManager="*res://scripts/AudioManager.gd"
