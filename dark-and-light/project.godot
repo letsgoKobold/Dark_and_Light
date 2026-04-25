@@ -15,7 +15,7 @@ General/banks_path="res://fmod/DarkAndLight/Build/Desktop"
 [application]
 
 config/name="Localv2"
-run/main_scene="uid://klsj0vvenrcd"
+run/main_scene="uid://hahhvt67578c"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -68,3 +68,7 @@ walkLeft={
 2d_physics/layer_3="player"
 2d_physics/layer_4="white layer"
 2d_physics/layer_5="black layer"
+
+[physics]
+
+2d/default_gravity=1450.0
