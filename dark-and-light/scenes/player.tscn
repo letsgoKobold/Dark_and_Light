@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bbjjxmwqrnv5h"]
+[gd_scene load_steps=24 format=3 uid="uid://b4vi0wq4iltn"]
 
 [ext_resource type="Script" uid="uid://cb7ub2ah0sgns" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://btcwgs4d2hpfa" path="res://assets/Testassets/kenney_new-platformer-pack-1.1/Spritesheets/spritesheet-characters-default.png" id="2_g2els"]
@@ -186,21 +186,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(113, 114)
+size = Vector2(61, 66)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(-3, -1)
 script = ExtResource("1_g2els")
 
 [node name="White_Character" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -68)
+position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_d2wvv")
 animation = &"run"
 
 [node name="Black_Character" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -68)
+position = Vector2(2, 1)
 sprite_frames = SubResource("SpriteFrames_g2els")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -66)
+position = Vector2(4, 21)
 shape = SubResource("RectangleShape2D_qhqgy")
