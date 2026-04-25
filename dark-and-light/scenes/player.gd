@@ -7,6 +7,7 @@ const SPEED = 450.0
 const RUNNING_SPEED = 600.0
 const JUMP_VELOCITY = -800.0
 const MAXLAYERNUM = 32
+var cframes = 8
 
 func _ready() -> void:
 	collision_layer = 3
@@ -15,12 +16,21 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var is_running = false
-
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 	
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if not is_on_floor():
+		if velocity.y >= 0:
+			velocity += get_gravity() * delta
+		elif !Input.is_action_pressed("jump"):
+			velocity += get_gravity() * delta * 15
+		else:
+			velocity += get_gravity() * delta
+		cframes -= 1
+		print(cframes)
+	else:
+		cframes = 8
+
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or cframes > 0):
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_pressed("sprint"):
