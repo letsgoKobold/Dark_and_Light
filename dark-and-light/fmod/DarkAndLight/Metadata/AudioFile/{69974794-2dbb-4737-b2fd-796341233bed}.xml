@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{69974794-2dbb-4737-b2fd-796341233bed}">
+		<property name="assetPath">
+			<value>magiaz-jump-cartoon-439679.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>5.093877551020408</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b1932d3d-126e-461f-b0e5-8fc531b34372}</destination>
+		</relationship>
+	</object>
+</objects>

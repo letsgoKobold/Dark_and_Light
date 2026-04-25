@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bf5eytyhdpsic"]
+
+[node name="FmodBankLoader" type="FmodBankLoader"]
+bank_paths = ["res://fmod/DarkAndLight/Build/Desktop/Master.strings.bank", "res://fmod/DarkAndLight/Build/Desktop/Master.bank"]

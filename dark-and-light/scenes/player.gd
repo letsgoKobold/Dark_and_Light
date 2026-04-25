@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 		cframes = 8
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or cframes > 0):
+		AudioManager.play_one_shot("Jump")
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_pressed("sprint"):
@@ -72,7 +73,7 @@ func update_animation(direction, is_running):
 		sprite_black.flip_h = false
 		sprite_white.flip_h = false
 	if not is_on_floor():
-		if velocity.y < 0:
+		if velocity.y < 0:			
 			sprite_black.play("jump")
 			sprite_white.play("jump")
 		else:
@@ -95,9 +96,12 @@ func animation_sync():
 	sprite_white.frame_progress = sprite_black.frame_progress
 
 func switch_layer_collision():
+	AudioManager.play_one_shot("Switch")
 	if get_collision_mask_value(4):
+		AudioManager.set_global_parameter("Color", 0)
 		change_collision_layer(5)
 	elif get_collision_mask_value(5):
+		AudioManager.set_global_parameter("Color", 1)
 		change_collision_layer(4)
 func change_collision_layer(layerNum: int):
 	collision_mask = 0

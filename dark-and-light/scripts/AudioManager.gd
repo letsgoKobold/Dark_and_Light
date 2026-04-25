@@ -10,12 +10,11 @@ func _ready():
 	FmodServer.load_bank("res://fmod/DarkAndLight/Build/Desktop/Master.strings.bank", FmodServer.FMOD_STUDIO_LOAD_BANK_NORMAL)
 	FmodServer.load_bank("res://fmod/DarkAndLight/Build/Desktop/Master.bank", FmodServer.FMOD_STUDIO_LOAD_BANK_NORMAL)
 	#atmo_event = FmodServer.create_event_instance("event:/Atmo")
-	#play_bgm("BGM")
+	play_bgm("BGM")
 
 func play_bgm(eventName, stop_mode = 0):
 	
 	#stop_bgm(stop_mode)
-		
 	bgm_event = FmodServer.create_event_instance("event:/" + eventName)
 	bgm_event.start()
 	
