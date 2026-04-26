@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7uyc1vxe01mx"]
+
+[ext_resource type="Script" uid="uid://c6qh5svec8qcd" path="res://scenes/interaction_item_base.gd" id="1_rxr7q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rdq3d"]
+radius = 39.012817
+
+[node name="InteractionItemBase" type="Area2D"]
+script = ExtResource("1_rxr7q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+shape = SubResource("CircleShape2D_rdq3d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

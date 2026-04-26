@@ -8,12 +8,27 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://fmod/DarkAndLight/Build/Desktop"
+
 [application]
 
 config/name="Localv2"
-run/main_scene="uid://ltflfbnoq1nm"
+run/main_scene="uid://hahhvt67578c"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+AudioManager="*res://scripts/AudioManager.gd"
+GlobalFmodBankLoader="*res://scenes/fmod_bank_loader.tscn"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [input]
 
@@ -42,6 +57,10 @@ sprint={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+walkLeft={
+"deadzone": 0.2,
+"events": []
+}
 
 [layer_names]
 
@@ -50,3 +69,8 @@ sprint={
 2d_physics/layer_3="player"
 2d_physics/layer_4="white layer"
 2d_physics/layer_5="black layer"
+2d_physics/layer_6="interactionItems"
+
+[physics]
+
+2d/default_gravity=1450.0
