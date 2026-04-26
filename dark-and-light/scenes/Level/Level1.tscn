@@ -385,4 +385,15 @@ position = Vector2(-5474, -4658)
 effect = 2
 effect_value = "YAY! You reached the goal!"
 
+[node name="InteractionItemBase3" parent="." instance=ExtResource("4_4esi6")]
+position = Vector2(-617, 209)
+effect = 2
+effect_value = "walk with 'A' and 'S' and jump with SPACE"
+time_value = 7.0
+
+[node name="InteractionItemBase4" parent="." instance=ExtResource("4_4esi6")]
+position = Vector2(1589, -807)
+effect = 2
+effect_value = "Sprint with SHIFT"
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
