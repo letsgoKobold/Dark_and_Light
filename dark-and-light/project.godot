@@ -23,6 +23,7 @@ config/icon="res://icon.svg"
 
 FmodManager="*res://addons/fmod/FmodManager.gd"
 AudioManager="*res://scripts/AudioManager.gd"
+GlobalFmodBankLoader="*res://scenes/fmod_bank_loader.tscn"
 
 [editor]
 
