@@ -108,3 +108,6 @@ func change_collision_layer(layerNum: int):
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(2, true)
 	set_collision_mask_value(layerNum, true)
+
+func die (): 
+	get_tree().reload_current_scene()
