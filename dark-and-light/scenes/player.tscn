@@ -40,7 +40,7 @@ region = Rect2(128, 64, 64, 64)
 atlas = ExtResource("2_qhqgy")
 region = Rect2(192, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_d2wvv"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -78,7 +78,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -131,7 +131,7 @@ region = Rect2(192, 64, 64, 64)
 atlas = ExtResource("3_qhqgy")
 region = Rect2(128, 64, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_g2els"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2wvv"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -205,6 +205,25 @@ scale = Vector2(1.4179686, 1.3545959)
 sprite_frames = SubResource("SpriteFrames_g2els")
 animation = &"idle"
 
+[node name="White_Character" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_d2wvv")
+animation = &"run"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 32)
 shape = SubResource("RectangleShape2D_qhqgy")
+
+[node name="TutorialLabels" type="Label" parent="."]
+offset_left = -158.0
+offset_top = -79.0
+offset_right = 162.0
+offset_bottom = -42.0
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+
+[node name="LabelTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
+[connection signal="timeout" from="LabelTimer" to="." method="_on_label_timer_timeout"]
