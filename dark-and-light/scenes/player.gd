@@ -5,6 +5,9 @@ extends CharacterBody2D
 
 @onready var speed_timer = $SpeedTimer
 @onready var jump_timer = $JumpTimer
+@onready var label_timer = $LabelTimer
+
+@onready var label_tutorial = $TutorialLabels
 
 const SPEED = 450.0
 const RUNNING_SPEED = 600.0
@@ -115,18 +118,25 @@ func do_effect(effect, value, time_value):
 			speed_timer.wait_time = time_value
 			speed_timer.start()
 			if speed == SPEED:
-				speed += value
-				running_speed += (value * 1.5)
+				speed += float(value)
+				running_speed += (float(value) * 1.5)
 		1: #jump boost
 			jump_timer.wait_time = time_value
 			jump_timer.start()
 			if jump_velocity == JUMP_VELOCITY:
-				jump_velocity -= value
+				jump_velocity -= float(value)
+		2: #show text
+			label_timer.wait_time = 10.0
+			label_timer.start()
+			label_tutorial.text = value
+			label_tutorial.show()
 
 func _on_speed_timer_timeout() -> void:
 	speed = SPEED
 	running_speed = RUNNING_SPEED
 
-
 func _on_jump_timer_timeout() -> void:
 	jump_velocity = JUMP_VELOCITY
+
+func _on_label_timer_timeout() -> void:
+	label_tutorial.hide()

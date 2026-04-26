@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://hahhvt67578c"]
+[gd_scene load_steps=14 format=3 uid="uid://hahhvt67578c"]
 
 [ext_resource type="Texture2D" uid="uid://cul254eq6sjf8" path="res://assets/TileSet/TilesSetAplpha.png" id="1_w0kt7"]
 [ext_resource type="PackedScene" uid="uid://bbjjxmwqrnv5h" path="res://scenes/player.tscn" id="2_h32uy"]
 [ext_resource type="PackedScene" uid="uid://b7uyc1vxe01mx" path="res://scenes/interactionItemBase.tscn" id="3_p0hel"]
 [ext_resource type="Texture2D" uid="uid://kvgvnfvyiuk8" path="res://assets/Testassets/kenney_new-platformer-pack-1.1/Sprites/Tiles/Default/block_green.png" id="4_8x4nf"]
 [ext_resource type="Texture2D" uid="uid://bgbii46vyj2gd" path="res://assets/Testassets/kenney_new-platformer-pack-1.1/Sprites/Tiles/Default/block_coin_active.png" id="5_7s6sr"]
+[ext_resource type="Texture2D" uid="uid://bqxadmnx4p0gf" path="res://assets/Testassets/kenney_new-platformer-pack-1.1/Sprites/Tiles/Default/block_strong_exclamation.png" id="6_7s6sr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8x4nf"]
 texture = ExtResource("1_w0kt7")
@@ -150,6 +151,17 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_rsq5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_7s6sr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level1" type="Node2D"]
 
 [node name="BlackArea" type="TileMap" parent="."]
@@ -178,6 +190,7 @@ position_smoothing_speed = 20.0
 
 [node name="SpeedItem" parent="." instance=ExtResource("3_p0hel")]
 position = Vector2(1595, -840)
+effect_value = "300.0"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="SpeedItem"]
 sprite_frames = SubResource("SpriteFrames_4esi6")
@@ -185,6 +198,15 @@ sprite_frames = SubResource("SpriteFrames_4esi6")
 [node name="JumpItem" parent="." instance=ExtResource("3_p0hel")]
 position = Vector2(10009, -4758)
 effect = 1
+effect_value = "300.0"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="JumpItem"]
 sprite_frames = SubResource("SpriteFrames_s5y6n")
+
+[node name="InteractionItemBase" parent="." instance=ExtResource("3_p0hel")]
+position = Vector2(-366, 149)
+effect = 2
+effect_value = "Welcome!"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InteractionItemBase"]
+sprite_frames = SubResource("SpriteFrames_rsq5u")
