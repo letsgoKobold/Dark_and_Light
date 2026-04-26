@@ -110,11 +110,11 @@ func switch_layer_collision():
 	if get_collision_mask_value(4):
 		set_collision_mask_value(4, false)
 		set_collision_mask_value(5, true)
-    AudioManager.set_global_parameter("Color", 0)
+		AudioManager.set_global_parameter("Color", 0)
 	elif get_collision_mask_value(5):
 		set_collision_mask_value(5, false)
 		set_collision_mask_value(4, true)
-    AudioManager.set_global_parameter("Color", 1)
+		AudioManager.set_global_parameter("Color", 1)
 
 
 func do_effect(effect, value, time_value):
