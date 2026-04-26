@@ -116,7 +116,6 @@ func switch_layer_collision():
 		set_collision_mask_value(4, true)
 		AudioManager.set_global_parameter("Color", 1)
 
-
 func do_effect(effect, value, time_value):
 	match effect:
 		0: #speed
@@ -145,3 +144,6 @@ func _on_jump_timer_timeout() -> void:
 
 func _on_label_timer_timeout() -> void:
 	label_tutorial.hide()
+	
+func die():
+	get_tree().reload_current_scene()
