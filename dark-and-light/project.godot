@@ -68,6 +68,7 @@ walkLeft={
 2d_physics/layer_3="player"
 2d_physics/layer_4="white layer"
 2d_physics/layer_5="black layer"
+2d_physics/layer_6="interactionItems"
 
 [physics]
 

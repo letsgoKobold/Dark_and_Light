@@ -3,13 +3,20 @@ extends CharacterBody2D
 @onready var sprite_black = $Black_Character
 @onready var sprite_white = $White_Character
 
+@onready var speed_timer = $SpeedTimer
+@onready var jump_timer = $JumpTimer
+
 const SPEED = 450.0
 const RUNNING_SPEED = 600.0
 const JUMP_VELOCITY = -800.0
 const MAXLAYERNUM = 32
+var speed = 450.0
+var running_speed = 600.0
+var jump_velocity = -800.0
 var cframes = 8
 
 func _ready() -> void:
+	add_to_group("player")
 	collision_layer = 3
 	set_collision_mask_value(1, true)
 	set_collision_mask_value(2, true)
@@ -31,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		cframes = 8
 
 	if Input.is_action_just_pressed("jump") and (is_on_floor() or cframes > 0):
-		velocity.y = JUMP_VELOCITY
+		velocity.y = jump_velocity
 	
 	if Input.is_action_pressed("sprint"):
 		is_running = true
@@ -41,9 +48,9 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("walk_left", "walk_right")
 	if direction:
 		if is_running:
-			velocity.x = direction * RUNNING_SPEED
+			velocity.x = direction * running_speed
 		else:
-			velocity.x = direction * SPEED
+			velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
@@ -101,3 +108,25 @@ func switch_layer_collision():
 	elif get_collision_mask_value(5):
 		set_collision_mask_value(5, false)
 		set_collision_mask_value(4, true)
+
+func do_effect(effect, value, time_value):
+	match effect:
+		0: #speed
+			speed_timer.wait_time = time_value
+			speed_timer.start()
+			if speed == SPEED:
+				speed += value
+				running_speed += (value * 1.5)
+		1: #jump boost
+			jump_timer.wait_time = time_value
+			jump_timer.start()
+			if jump_velocity == JUMP_VELOCITY:
+				jump_velocity -= value
+
+func _on_speed_timer_timeout() -> void:
+	speed = SPEED
+	running_speed = RUNNING_SPEED
+
+
+func _on_jump_timer_timeout() -> void:
+	jump_velocity = JUMP_VELOCITY

@@ -192,6 +192,10 @@ size = Vector2(46, 60)
 position = Vector2(-3, -1)
 script = ExtResource("1_g2els")
 
+[node name="JumpTimer" type="Timer" parent="."]
+
+[node name="SpeedTimer" type="Timer" parent="."]
+
 [node name="White_Character" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_d2wvv")
@@ -205,3 +209,6 @@ animation = &"run"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 32)
 shape = SubResource("RectangleShape2D_qhqgy")
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]
+[connection signal="timeout" from="SpeedTimer" to="." method="_on_speed_timer_timeout"]
