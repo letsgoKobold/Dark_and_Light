@@ -11,8 +11,9 @@ var cframes = 8
 
 func _ready() -> void:
 	collision_layer = 3
-	change_collision_layer(5)
-	print("hey")
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(2, true)
+	set_collision_mask_value(5, true)
 
 func _physics_process(delta: float) -> void:
 	var is_running = false
@@ -26,7 +27,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity += get_gravity() * delta
 		cframes -= 1
-		print(cframes)
 	else:
 		cframes = 8
 
@@ -96,11 +96,8 @@ func animation_sync():
 
 func switch_layer_collision():
 	if get_collision_mask_value(4):
-		change_collision_layer(5)
+		set_collision_mask_value(4, false)
+		set_collision_mask_value(5, true)
 	elif get_collision_mask_value(5):
-		change_collision_layer(4)
-func change_collision_layer(layerNum: int):
-	collision_mask = 0
-	set_collision_mask_value(1, true)
-	set_collision_mask_value(2, true)
-	set_collision_mask_value(layerNum, true)
+		set_collision_mask_value(5, false)
+		set_collision_mask_value(4, true)
